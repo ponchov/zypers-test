@@ -9,7 +9,7 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: nginx
   namespace: test
   labels:
     app: nginx
@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:latest
+        image: nginx
         ports:
         - containerPort: 80
 
@@ -34,7 +34,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-service
+  name: nginx
   namespace: test
 spec:
   selector:
@@ -48,8 +48,8 @@ spec:
 
 apiVersion: v1
 data:
-  tls.crt: MIIC+TCCAeGgAwIBAgIJAPiSPsRfNs5qMA0GCSqGSIb3DQEBBQUAMBMxETAPBgNVBAMMCHRlc3QuY29tMB4XDTE5MDcxMTE3MDAxNloXDTI5MDcwODE3MDAxNlowEzERMA8GA1UEAwwIdGVzdC5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDfd851+sPnQjZ1icp9wifRLNywoG4bOqyLtngptMOkjjZ6ExaCUATBeIUq2lryrnk4B4ZS/71ykd/jSXB6mHnKUwu0KJQgA6drgXdsiw+ynhYQom5gGT1gt2GbYzLEVl5moQmnoq/19Sk7GWJxW+tISwu4zpq+U4mdo/2GgPtneskIS53HsHiRasUxlUvDFLzEQiCqGrgWjXsVOumm04L4cxEZ6bm5nN7OEB7rUs2cZaKx6hkw55Y2P/OAPCSsW6AVqMHdxzs+qOwuK402z0JuZ5fvkPDHcFgmDPhL4NfIU1nzF23FuZbep2JeXOQLbvlCl5ICYswc0NK1jiPqhoLvAgMBAAGjUDBOMB0GA1UdDgQWBBTUQd8GXppKrOuWHmpT7G8fvRo7IjAfBgNVHSMEGDAWgBTUQd8GXppKrOuWHmpT7G8fvRo7IjAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQBp4px7S4zj1Ye6esGBGhE3f2sHWxAju2dLRTCQKyJN96Vq7k6emLmyID0qtMs2uYjF+VePVgsq0e8NMlOerHGzxMgb3D4qp/CqNSsw4tc2yOsgo7iJZr/v/6+mAoNEIrC6r3k6JqbUgtTdT7yBoNDrHBoVyTXxYP0pTWllpwy6MWkLumTxVVO/LUac0K1rtTjtSGlf1h86I49h3ZNhIXwfrNl6zI4CiJIhO2hkzXoB/n6aby7WVDC2bnzbP5+mgIJgWwbmsoi60g3hjbQA/kYx3HsVLlHbtXGOaR8fzndJpPFgBgbp5Wf83RFJyeujM26lYFUd5GHXenw3mas5C0y3
-  tls.key: MIIEpAIBAAKCAQEA33fOdfrD50I2dYnKfcIn0SzcsKBuGzqsi7Z4KbTDpI42ehMWglAEwXiFKtpa8q55OAeGUv+9cpHf40lweph5ylMLtCiUIAOna4F3bIsPsp4WEKJuYBk9YLdhm2MyxFZeZqEJp6Kv9fUpOxlicVvrSEsLuM6avlOJnaP9hoD7Z3rJCEudx7B4kWrFMZVLwxS8xEIgqhq4Fo17FTrpptOC+HMRGem5uZzezhAe61LNnGWiseoZMOeWNj/zgDwkrFugFajB3cc7PqjsLiuNNs9CbmeX75Dwx3BYJgz4S+DXyFNZ8xdtxbmW3qdiXlzkC275QpeSAmLMHNDStY4j6oaC7wIDAQABAoIBAQCM0WBm9BiTGCRdOPFDAiA5Lf37x3za58RnXhqmnWRTw9IMZw7eGzKEAEBaWrLJDq0QY51/m+xzz/y3q0WX25GTr3VGl/OPoP3VPwZUfeTsd7YL0W+gWwdUdPqrAn2xP4PJRF1jJ5+ebFkJBtwD9xpyueevE3Jr0RR9JCPUqF7EO2tn6+AK6t/3Jc3de561EhRKenTghL19iq9ABPM7yygwcsGWsgUowFeuejZzBh9r70odHgpMx+tGaS+ET5nJs0fxerfZ1QA/Gc570CV+OteAoGRduw9KTH/sKmOTfuD+T6FHaeGEuh+KqWd7OetJci4/zQT8z41RvIPaQYBCCI2RAoGBAP/FeyxIQWrZ2wAZp9tdA+GLXXOSKtrE4HKxASJm1HAiBVXNye/5NtCZxFKSPuPbdN0b506d4ab3I4J+xWvRwUwjvvCnOzpVWZyCjnOwjdorFRZq58Sq7bUEo8ZH5Q2rQWdXiV5jDxqRZzQH8uxqxcqL8aFcgqkRolnqDU3ZOmgFAoGBAN+q7z1Mb7ezogmukzhITnblifdZgsCar1JKMHW7BCtM+2AEO3xGCVfEYfv/PZQ4vCsIpsRO8jJzz5N/zT63VlD9VwUxdWPB7zT0qDAC8w41nHCLhTNE0QbHcFzjM4Oc5hyqor7+t8yME4xlG+IooTNDdzunsdSoT5neAS+0rnVjAoGBAOF6h8aXAEyhN8aT1320N0qrYLwUvIDWFQQm9NgODPO5mjh1TbOnYOJu3DrqwFSBUDnocnbFCnv13TEabxJI/P4ReS+QTc90FKa8Fbb5i2QsnM+BeUbQZPQy3epb0RrGwcbHzcsOyu7iBjhBVa+DxVB1JJPbCTjg2d4oTog1m569AoGAOyXl/GzhQlAzsqHC9uhQL6sF8C5woGSHpphN9mRNdvH1q++Sl4uh3t7lFpHqA+94+1xfVZyW+facVyI98a7kGajVQV9R7t6TVoq4i3HMOt68jxqmT+eL62IEedvvfIeaZsxNG3saufH1HXSDiiw6bOcTeegf49/apRMLd0UtuYcCgYAMQsqxKWmYyOomx21BXnJZMLyfKjCQMYEbNG/+SQhfyuPrtEY1HOPCh4UPdpCIbzex3W9OemdyzMxsNFCKwlu2BPpvCcQaZax5Pzy3waTuNedkBlfl4ybyGhEN+nxXDM+m2QCzf7OOB2bsWrQ0LN5lyVsu1HI/VnJfgp5CmQI2eA==
+  tls.crt: MIIDBzCCAe+gAwIBAgIJAOgqvSN8hqRkMA0GCSqGSIb3DQEBBQUAMBoxGDAWBgNVBAMMD3p5cGVycy10ZXN0LmNvbTAeFw0xOTA3MTEyMDMyNDVaFw0yOTA3MDgyMDMyNDVaMBoxGDAWBgNVBAMMD3p5cGVycy10ZXN0LmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKTXtAjrhLbb2cvp4yCXa3O4JmtH3YU9L/hNWXD4owVPPtcpS2LeTQ49yAl2NzwnYW2BFyqIVPEgK4R8yNUAxb6SmT0Jczk1Pkx84FKp000a1OacvtED+MV7kP3TjP19gBZ9EJnHH7GXYLL56WoPFwWi0E5pOM4Li/btTfUTV5BwRavFhFWVzqInyPlRlJT+N/t8SsrR1nAxpOPVO4aFXFzQ1mj9LL2e0D5hJB+1Tfge64p8M66ABp+C8c7zgICA9xB0tS6xdC3oJrwiqattF1EJArNMcXa9EDQBSIgwbOS3prQipkVEjtoUw4WaRIJMORvQmbkmEdNXn0loV9oiQAkCAwEAAaNQME4wHQYDVR0OBBYEFFulrvSebo76zu4IpMYkKr4AuPAKMB8GA1UdIwQYMBaAFFulrvSebo76zu4IpMYkKr4AuPAKMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAJHe92ANVJoaz/lbI1yUtyh5DNtd8Jh+g1FZ1HbQPAbG1fp2Tn76gXvfbvEvWJv2PC1ZyoOAZ7EfWqUVErfleraJDP2c+8h/cmuDLtNZEn6FivHUtwJiPCzAglsGBVS4JLzwXxmbv3ctAnSXxZ9lV8IQBqsI6FXQdYmuD12hggbc72roly9q8xm+TFyf1E3BONo3DgRF3VN0d3I2XZGOqLW/19f23trcluyUSkWbnsvG8eCaG0g0hUAIRrkFfxk8Q0mQBfVKk+5mckbAKEPcasgzZWn4g8HYND/0B15QhsCMsCyq160pGMc1zs7ATUnYnkna4IGI2+V5ywlpp6/d3KU=
+  tls.key: MIIEowIBAAKCAQEApNe0COuEttvZy+njIJdrc7gma0fdhT0v+E1ZcPijBU8+1ylLYt5NDj3ICXY3PCdhbYEXKohU8SArhHzI1QDFvpKZPQlzOTU+THzgUqnTTRrU5py+0QP4xXuQ/dOM/X2AFn0QmccfsZdgsvnpag8XBaLQTmk4zguL9u1N9RNXkHBFq8WEVZXOoifI+VGUlP43+3xKytHWcDGk49U7hoVcXNDWaP0svZ7QPmEkH7VN+B7rinwzroAGn4LxzvOAgID3EHS1LrF0LegmvCKpq20XUQkCs0xxdr0QNAFIiDBs5LemtCKmRUSO2hTDhZpEgkw5G9CZuSYR01efSWhX2iJACQIDAQABAoIBAHlPnNirqqF/rgrY9yN3C8a/kNaGrsltPC45jkcLU72GkjJ521bJTl/aq6n6669DM/oIdGoCprBFAoGf65SF2wDilg9LMxa4zj4v8E4lWLF3u5JzbCIaECwVQaDq3Ol4QJlMNLlWx0ZEpw9Px60bqc+mADKUUQ+hg8GW5jYjo99Q8hAnWhp99R6USE5sGtUApH3FjPniuSk8yWwJFgv9bnqAwYw/QZEgLRD8LPsxWcCzPsoK5w3iqZyVRU5VYIcTuwEuBZySp3x79eFrCP1bEwhJzGxbF80I8ps595aRNqQOvECo/ASLf+pifLyMDGo3m/JT6v8g3yJcxRCEMK380QECgYEA1DnzeOkyfHY7k1LBRO7QBp5IQO3EjwJYdeZZZ4GPVm67hbUAsSFfeO600iceWEhpax8Zelz6q+LLMLwbR+36pNzJGwE9U1kTLTRS1aHZzusMyh2M+Nvw+IV0EYN2PuggROjr8PPaQev8u23fmcOYSM5grzu/WgvCItSBU0gX6tECgYEAxtfHGS6q2jBftyNvZ/bMszQm2YhhwQXNnpQ/IGpjG8884UupGMO9VA5/AxwQ4IzPP2bHr1iU+RNpjw3XSD/eY6utLgf/6rID2idMehEBjAuuzo20J2Hspy9vW+UZOiKRPpLj7DRHBZI+bEor2Pb3bCWQoHiPpqkQY2g7KbbWX7kCgYANmckorok1wL4AqwUHzeY3Bl3LC3HVWGki5ShFod/1whLydq8cqu7baTDdZvRi5AEdhFi1ps/JxDcRYHy/F1lAx4V73ZB4jvTTqM7GMiErSZUAPvSR3kaLJsJRfQNO9MFcqTC1uGr8XotL17bEu+w+fjtj/4g71RUT9lpzY+NkgQKBgHqVvl3NAnGfDvMlumHaqhn0ldrYFIPeIwSXmk9OpykW2w5+CZKF4eu3QCBXpiP5Sy9oGsUEFFt110blHoqhLWY/CXXuYpx7AJr2TVSXtV90OGGIxL7exPnQ6ZM6qxHHC8oK3s7Y78wEe81g8KVCpAidJAt6J/10DvFp6cduu7ypAoGBAJgecVOruMxE9TRZMquT1AX3Wa86XwubV176FeAzsab9f6pw+LyZ5HNGcICdHyyhBKCzlVotxST/NXJNDusX57mzecWkyxGc98EfFuJTLbfgJGaO/pLt3grFKKNvpUZfkWsFqJBN/fdD7R87ClRpiJibQDQWRYpRqtBvm6SX4yMW
 kind: Secret
 metadata:
   name: test-cert
@@ -62,24 +62,26 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: test-ingress
+  namespace: test
   labels: 
     app.kubernetes.io/name: test-ingress
   annotations:
-    kubernetes.io/tls-acme: "true"
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    
+    #nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    kubernetes.io/ingress.class: "nginx"
+    #nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
 spec:
   tls:
   - hosts: 
-     - test.com
+     - zypers-test.com
     secretName: test-cert
   rules:
-  - host: test.com
+  - host: zypers-test.com
     http: 
       paths: 
       - path: /
         backend: 
-          serviceName: nginx-service
+          serviceName: nginx
           servicePort: 80
 
 
